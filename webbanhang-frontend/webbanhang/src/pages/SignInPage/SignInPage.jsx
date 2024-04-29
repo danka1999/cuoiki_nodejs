@@ -7,7 +7,7 @@ import {
 import InputForm from "../../components/InputForm/InputForm";
 import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
 import { Image } from "antd";
-import imageLogo from "../../assets/images/logo-login.png";
+import imageLogo from "../../assets/images/2.jpeg";
 import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import * as UserService from '../../service/UserService'
@@ -70,7 +70,6 @@ const SignInPage = () => {
       email,
       password
     })
-    console.log('sign-in', email, password)
   }
 
   return (

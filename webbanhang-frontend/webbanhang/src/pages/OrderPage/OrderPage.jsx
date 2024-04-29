@@ -17,12 +17,14 @@ import { updateUser } from '../../redux/slides/userSlide';
 import { useNavigate } from 'react-router-dom';
 import StepComponent from '../../components/StepComponent/StepComponent';
 import { WrapperInputNumber } from '../../components/ProductDetailComponent/styled';
+import axios from 'axios';
 
 
 const OrderPage = () => {
   const order = useSelector((state) => state.order)
   const user = useSelector((state) => state.user)
-
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [listChecked, setListChecked] = useState([])
   const [isOpenModalUpdateInfo, setIsOpenModalUpdateInfo] = useState(false)
   const [stateUserDetails, setStateUserDetails] = useState({
@@ -136,11 +138,12 @@ const OrderPage = () => {
   const handleAddCard = () => {
     if(!order?.orderItemsSlected?.length) {
       message.error('Vui lòng chọn sản phẩm')
+    }else if (!user?.email && !user?.password){
+      message.error('Vui lòng đăng nhập')
     }else if(!user?.phone || !user.address || !user.name || !user.city) {
       setIsOpenModalUpdateInfo(true)
     }else {
       navigate('/payment')
-      
     } 
   }
 
@@ -151,7 +154,8 @@ const OrderPage = () => {
         ...rests } = data
       const res = UserService.updateUser(
         id,
-        { ...rests }, token)
+        token,
+        { ...rests })
       return res
     },
   )
@@ -175,9 +179,12 @@ const OrderPage = () => {
         onSuccess: () => {
           dispatch(updateUser({name, address,city, phone}))
           setIsOpenModalUpdateInfo(false)
+          axios.post(`${process.env.REACT_APP_API_URL}/user/refresh-token`, {token: user?.access_token})
         }
       })
     }
+
+    
   }
 
   const handleOnchangeDetails = (e) => {

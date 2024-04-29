@@ -22,6 +22,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from "react-router-dom";
 import { addOrderProduct } from "../../redux/slides/orderSlide";
 import { convertPrice } from "../../utils";
+import * as message from '../Message/Message'
 
 
 const ProductDetailComponent = ({idProduct}) => {
@@ -51,9 +52,6 @@ const handleChangeCount = (type) => {
 const {isLoading, data: productDetails} = useQuery({queryKey: ['product-details', idProduct],queryFn: fetchGetDetailsProduct, enabled: !!idProduct})
   
 const handleAddOrderProduct = () => {
-    if(!user?.id) {
-      navigate('/sign-in', {state: location?.pathname})
-    }else {
       dispatch(addOrderProduct({
         orderItems: {
           name: productDetails?.name,
@@ -64,9 +62,10 @@ const handleAddOrderProduct = () => {
           discount: productDetails?.discount,
           countInStock: productDetails?.countInStock
         }
-      
       }))
-    }
+
+      message.success()
+    
   }
   console.log('productDetails',productDetails, user)
   return (

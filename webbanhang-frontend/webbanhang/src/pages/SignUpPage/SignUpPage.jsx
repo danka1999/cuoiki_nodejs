@@ -7,7 +7,7 @@ import {
 import { useState } from "react";
 import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
 import { Image } from "antd";
-import imageLogo from "../../assets/images/logo-login.png";
+import imageLogo from "../../assets/images/1.jpg";
 import InputForm from "../../components/InputForm/InputForm";
 import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
@@ -41,7 +41,7 @@ const SignUpPage = () => {
       message.error()
     }
   }, [isSuccess, isError])
-
+console.log()
 
 
   const handleOnchangePassword = (value) => {

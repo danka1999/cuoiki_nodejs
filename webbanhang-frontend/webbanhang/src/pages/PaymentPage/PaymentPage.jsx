@@ -115,12 +115,14 @@ const PaymentPage = () => {
   
   const mutationUpdate = useMutationHooks(
     (data) => {
-      const { id,
+      const { 
+        id,
         token,
         ...rests } = data
       const res = UserService.updateUser(
         id,
-        { ...rests }, token)
+        token,
+        { ...rests })
       return res
     },
   )
@@ -131,7 +133,8 @@ const PaymentPage = () => {
         token,
         ...rests } = data
       const res = OrderService.createOrder(
-        { ...rests }, token)
+        token,
+        { ...rests })
       return res
     },
   )
@@ -174,11 +177,11 @@ const PaymentPage = () => {
 
 
   const handleUpdateInforUser = () => {
-    const {name, address,city, phone} = stateUserDetails
+    const {name, phone,address, city} = stateUserDetails
     if(name && address && city && phone){
       mutationUpdate.mutate({ id: user?.id, token: user?.access_token, ...stateUserDetails }, {
         onSuccess: () => {
-          dispatch(updateUser({name, address,city, phone}))
+          dispatch(updateUser({name, phone,address, city}))
           setIsOpenModalUpdateInfo(false)
         }
       })
@@ -197,7 +200,7 @@ const PaymentPage = () => {
 
   const handlePayment = (e) => {
     setPayment(e.target.value)
-  }
+  } 
 
   return (
     <div style={{background: '#f5f5fa', with: '100%', height: '100vh'}}>
@@ -258,18 +261,23 @@ const PaymentPage = () => {
               </div>
               
                 <ButtonComponent
-                  onClick={() => handleAddOrder()}
-                  size={40}
-                  styleButton={{
-                      background: 'rgb(255, 57, 69)',
-                      height: '48px',
-                      width: '320px',
-                      border: 'none',
-                      borderRadius: '4px'
+                    onClick={() => handleAddOrder()}
+                    size={40}
+                    styleButton={{
+                      background: "rgb(255, 57, 69)",
+                      height: "48px",
+                      width: "320px",
+                      border: "none",
+                      borderRadius: "4px",
+                    }}
+                    
+                    textButton="Thanh toán"
+                    styleTextButton={{
+                    color: "#fff",
+                    fontSize: "15px",
+                    fontWeight: "700",
                   }}
-                  textbutton={'Đặt hàng'}
-                  styleTextButton={{ color: '#fff', fontSize: '15px', fontWeight: '700' }}
-              ></ButtonComponent>
+          ></ButtonComponent>
             </WrapperRight>
           </div>
         </div>
