@@ -1,7 +1,5 @@
 # Member information:
 1. Dong Quang Hoai _ 1731103133
-2. Tran Dang Duong _ 2104110068
-3. Thai Nguyen Tu Quynh _ 2104110063
 
 # Describe how to connect VScode to mongoDB
 Connecting with MongoDB for VS Code
