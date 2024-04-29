@@ -18,10 +18,11 @@ mongodb+srv://root:<password>@cluster0.neo8fsv.mongodb.net/
 Replace <password> with the password for the root user. Ensure any options are URL encoded. 
 4. Click “Create New Playground” in MongoDB for VS Code to get started.
 
-Tài khoản quản lý:
+@Tài khoản quản lý:
 #email: admin@gmail.com
 #password: 123456
-Tài khoản người dùng:
+
+@Tài khoản người dùng:
 #email: MrTeo3@gmail.com
 #password: 123456
 
