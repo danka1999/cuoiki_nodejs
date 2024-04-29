@@ -1,9 +1,9 @@
-#Thông tin thành viên:
+# Thông tin thành viên:
 1. Đồng Quang Hoài _ 1731103133
 2. Trần Đăng Dương _ 2104110068
 3. Thái Nguyễn Tú Quỳnh _ 2104110063
 
-
+# Mô tả cách kết nối VScode với mongoDB
 Connecting with MongoDB for VS Code
 1. Install MongoDB for VS Code.
 In VS Code, open "Extensions" in the left navigation and search for "MongoDB for VS Code." Select the extension and click install.
@@ -18,11 +18,11 @@ mongodb+srv://root:<password>@cluster0.neo8fsv.mongodb.net/
 Replace <password> with the password for the root user. Ensure any options are URL encoded. 
 4. Click “Create New Playground” in MongoDB for VS Code to get started.
 
-@Tài khoản quản lý:
+# Tài khoản quản lý:
 #email: admin@gmail.com
 #password: 123456
 
-@Tài khoản người dùng:
+# Tài khoản người dùng:
 #email: MrTeo3@gmail.com
 #password: 123456
 
