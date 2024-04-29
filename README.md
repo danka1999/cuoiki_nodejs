@@ -13,7 +13,6 @@ Search "MongoDB: Connect" on the Command Palette and click on "Connect with Conn
 3. Connect to your MongoDB deployment.
 Paste your connection string into the Command Palette.
 mongodb+srv://root:<password>@cluster0.neo8fsv.mongodb.net/
-đây là phải .env:
 # MONGO_DB = mongodb+srv://root:123@cluster0.neo8fsv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 để kết nối VScode và mongoDB
 Replace <password> with the password for the root user. Ensure any options are URL encoded. 
